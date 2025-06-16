@@ -71,9 +71,9 @@ export function PracticeResultDisplay({
   return (
     <Alert className="mt-4">
       <InfoIcon className="h-4 w-4" />
-      <AlertTitle>Submit your solution</AlertTitle>
+      <AlertTitle>Please note</AlertTitle>
       <AlertDescription>
-        Write your SQL query and submit it for evaluation.
+        Evaluation of practical exercises is enabled only for the local execution of PostgreSQL Index Lab. Please visit https://github.com/MatyasUrban/index-lab for installation steps.
       </AlertDescription>
     </Alert>
   );
