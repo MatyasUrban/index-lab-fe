@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { PracticeItem } from "@/data/learning-path";
 import { PracticeInput } from "./PracticeInput";
 import { PracticeResultDisplay } from "./PracticeResultDisplay";
-import { EvaluationResponseType } from "@/app/api/evaluate/[practiceTaskId]/route";
 import { addLearningProgress } from "@/app/learn/utils/AddLearningProgress";
 
 interface PracticeImplementationProps {
@@ -14,7 +13,7 @@ interface PracticeImplementationProps {
 export function PracticeImplementation({ item }: PracticeImplementationProps) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<EvaluationResponseType | null>(null);
+  const [result, setResult] = useState<{error: string} | null>(null);
   const [progress, setProgress] = useState<{
     value: number;
     message: string;
@@ -31,7 +30,7 @@ export function PracticeImplementation({ item }: PracticeImplementationProps) {
 
     setResult({
       error: 'Evaluation of practical exercises is enabled only for the local execution of PostgreSQL Index Lab. Please visit https://github.com/MatyasUrban/index-lab for installation steps.',
-    } as EvaluationResponseType);
+    });
     setLoading(false);
   };
 

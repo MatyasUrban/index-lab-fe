@@ -5,13 +5,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Progress } from "@/components/ui/progress";
 import { Loader2, AlertCircle, InfoIcon } from "lucide-react";
-import { PracticeResultCard } from "./PracticeResultCard";
-import { EvaluationResponseType } from "@/app/api/evaluate/[practiceTaskId]/route";
 
 interface PracticeResultDisplayProps {
   loading: boolean;
   submitted: boolean;
-  result: EvaluationResponseType | null;
+  result: {error: string} | null;
   progress?: { value: number; message: string } | null;
 }
 
@@ -68,10 +66,6 @@ export function PracticeResultDisplay({
         </AlertDescription>
       </Alert>
     );
-  }
-
-  if (submitted && result) {
-    return <PracticeResultCard result={result} />;
   }
 
   return (
